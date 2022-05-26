@@ -14,7 +14,7 @@ public class MainPage {
 
     //@Step("Open main Sain-Petersburg page")
     public MainPage openPage(){
-        Selenide.open("peterburg");
+        Selenide.open("/peterburg");
         headerDelivery.shouldHave(Condition.text("Доставка пиццы"));
         headerCity.shouldHave((Condition.text("Санкт-Петербург")));
 

@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import helpers.DriverSettings;
 import org.junit.jupiter.api.BeforeAll;
 import pages.MainPage;
 
@@ -10,7 +11,7 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
-        Configuration.baseUrl = "https://dodopizza.ru/";
+        DriverSettings.configure();
     }
 
 
