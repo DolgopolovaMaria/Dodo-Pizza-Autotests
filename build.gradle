@@ -21,7 +21,7 @@ dependencies {
             "org.aeonbits.owner:owner:1.0.12",
             "org.assertj:assertj-core:3.22.0",
             'com.codeborne:pdf-test:1.7.0',
-            "org.junit.jupiter:junit-jupiter-api:$junitVersion")
+            "org.junit.jupiter:junit-jupiter:$junitVersion")
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:1.7.32",
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion")

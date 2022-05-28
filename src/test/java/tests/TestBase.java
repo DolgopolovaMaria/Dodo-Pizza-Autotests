@@ -1,12 +1,14 @@
 package tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.Step;
+import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
 import helpers.DriverSettings;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import pages.MainPage;
+
+import java.lang.annotation.*;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static helpers.Attachments.*;
@@ -15,6 +17,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TestBase {
 
     final static String owner = "Mariya Dolgopolova";
+
+    final String cheesePizza = "Ветчина и сыр";
 
     MainPage mainPage = new MainPage();
 
@@ -46,5 +50,12 @@ public class TestBase {
 
         assertThat(consoleLogs).doesNotContain(errorText);
     }
+
+    @Documented
+    @Target({ ElementType.TYPE, ElementType.METHOD })
+    @Retention(RetentionPolicy.RUNTIME)
+    @Owner(owner)
+    @Link(value = "Dodo Pizza", url = "https://dodopizza.ru")
+    public @interface BaseAnnotation { }
 
 }
