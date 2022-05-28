@@ -9,6 +9,10 @@ import org.aeonbits.owner.Config;
         "classpath:remote.properties"
 })
 public interface ProjectConfig extends Config {
+    @Key("remote")
+    @DefaultValue("false")
+    boolean remote();
+
     @Key("browser")
     @DefaultValue("chrome")
     String browser();
@@ -29,6 +33,6 @@ public interface ProjectConfig extends Config {
     String user();
     @Key("password")
     String password();
-    @Key("remote")
-    String remote();
+    @Key("remoteUrl")
+    String remoteUrl();
 }

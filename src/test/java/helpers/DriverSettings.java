@@ -15,9 +15,9 @@ public class DriverSettings {
         if (Project.isRemoteWebDriver()) {
             String user = Project.config.user();
             String password = Project.config.password();
-            String remote = Project.config.remote();
+            String remoteUrl = Project.config.remoteUrl();
             // https://user1:1234@selenoid.autotests.cloud/wd/hub
-            Configuration.remote = "https://" + user + ":" + password + "@" + remote;
+            Configuration.remote = "https://" + user + ":" + password + "@" + remoteUrl;
             System.out.println(Configuration.remote);
         }
     }

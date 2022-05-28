@@ -6,6 +6,6 @@ public class Project {
     public static ProjectConfig config = ConfigFactory.create(ProjectConfig.class, System.getProperties());
 
     public static boolean isRemoteWebDriver() {
-        return config.remote() != null;
+        return (config.remote() && (config.remoteUrl() != null));
     }
 }
