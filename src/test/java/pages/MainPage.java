@@ -8,6 +8,8 @@ import io.qameta.allure.Step;
 import pages.components.Cart;
 import pages.components.Pizza;
 
+import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -21,7 +23,8 @@ public class MainPage {
     private final SelenideElement
         headerDelivery = $("span.header__about-slogan-text"),
         headerCity = $(".header__about-slogan-text_locality"),
-        cartButton = $(byTagAndText("button", "Корзина"));
+        cartButton = $(byTagAndText("button", "Корзина")),
+        cartQuantity = $("[data-testid=cart-button__quantity]");
 
     @Step("Open main Saint-Petersburg page")
     public MainPage openPage(){
@@ -53,7 +56,7 @@ public class MainPage {
     @Step("Check that section is open: {section}")
     public MainPage checkThatSectionOpen(String section){
         SelenideElement sectionElement = sections.findBy(Condition.text(section));
-        sectionElement.shouldHave(Condition.attribute("data-active", "true"));
+        sectionElement.shouldHave(attribute("data-active", "true"));
 
         return this;
     }
@@ -63,5 +66,12 @@ public class MainPage {
         cartButton.click();
 
         return new Cart();
+    }
+
+    @Step("Check cart quantity")
+    public MainPage checkCartQuantity(int value){
+        cartQuantity.shouldHave(exactText(String.valueOf(value)));
+
+        return this;
     }
 }
