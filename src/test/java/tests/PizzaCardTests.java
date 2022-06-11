@@ -18,7 +18,7 @@ public class PizzaCardTests extends TestBase {
     @ParameterizedTest(name = "{0}")
     @EnumSource(Pizza.Size.class)
     void chooseSizeTest(Pizza.Size size) {
-        mainPage.openPage().openPizza(cheesePizza).chooseSize(size).checkSize(size);
+        mainPage.openPage().openPizza(pizzaName).chooseSize(size).checkSize(size);
     }
 
     @DisplayName("Choose pizza dough:")
@@ -26,14 +26,14 @@ public class PizzaCardTests extends TestBase {
     @ParameterizedTest(name = "{0}")
     @EnumSource(Pizza.Dough.class)
     void chooseDoughTest(Pizza.Dough dough) {
-        mainPage.openPage().openPizza(cheesePizza).chooseDough(dough).checkDough(dough);
+        mainPage.openPage().openPizza(pizzaName).chooseDough(dough).checkDough(dough);
     }
 
     @DisplayName("Change pizza size several times")
     @OptionsAnnotation
     @Test
     void changeSizeSeveralTimesTest() {
-        mainPage.openPage().openPizza(cheesePizza).chooseSize(Pizza.Size.SMALL)
+        mainPage.openPage().openPizza(pizzaName).chooseSize(Pizza.Size.SMALL)
                 .chooseSize(Pizza.Size.LARGE).chooseSize(Pizza.Size.MEDIUM).checkSize(Pizza.Size.MEDIUM);
     }
 
@@ -41,7 +41,7 @@ public class PizzaCardTests extends TestBase {
     @OptionsAnnotation
     @Test
     void changeDoughSeveralTimesTest() {
-        mainPage.openPage().openPizza(cheesePizza).chooseDough(Pizza.Dough.THIN).chooseDough(Pizza.Dough.TRADITIONAL)
+        mainPage.openPage().openPizza(pizzaName).chooseDough(Pizza.Dough.THIN).chooseDough(Pizza.Dough.TRADITIONAL)
                 .checkDough(Pizza.Dough.TRADITIONAL);
     }
 
@@ -49,7 +49,7 @@ public class PizzaCardTests extends TestBase {
     @OptionsAnnotation
     @Test
     void chooseSizeAndDoughTest() {
-        mainPage.openPage().openPizza(cheesePizza).configurePizza(Pizza.Size.LARGE, Pizza.Dough.THIN)
+        mainPage.openPage().openPizza(pizzaName).configurePizza(Pizza.Size.LARGE, Pizza.Dough.THIN)
                 .checkPizzaOptions(Pizza.Size.LARGE, Pizza.Dough.THIN);
     }
 
@@ -60,16 +60,16 @@ public class PizzaCardTests extends TestBase {
     @BaseAnnotation
     @Test
     void addToCartTest() {
-        mainPage.openPage().openPizza(cheesePizza).addToCart();
+        mainPage.openPage().openPizza(pizzaName).addToCart();
         Cart cart = mainPage.goToCart();
-        cart.checkOpen().checkContainsProduct(cheesePizza);
+        cart.checkOpen().checkContainsProduct(pizzaName);
     }
 
     @DisplayName("Special test to be failed")
     @OptionsAnnotation
     @Test
     void failedTest() {
-        mainPage.openPage().openPizza(cheesePizza).chooseSize(Pizza.Size.LARGE).checkSize(Pizza.Size.SMALL);
+        mainPage.openPage().openPizza(pizzaName).chooseSize(Pizza.Size.LARGE).checkSize(Pizza.Size.SMALL);
     }
 
     @Documented

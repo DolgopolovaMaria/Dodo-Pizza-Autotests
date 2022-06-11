@@ -18,13 +18,17 @@ public class TestBase {
 
     final static String owner = "Mariya Dolgopolova";
 
-    final String cheesePizza = "Ветчина и сыр";
+    final String pizzaName = "Ветчина и сыр",
+            pizzaApiBodyId = "12036",
+            pizzaApiHeaderId = "000D3A22FA54A81411E99F2BD4DA1614";
+
 
     MainPage mainPage = new MainPage();
 
     @BeforeAll
     static void setUp() {
         DriverSettings.configure();
+
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 

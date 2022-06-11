@@ -1,11 +1,13 @@
 package tests;
 
+import helpers.ApiHelper;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static com.codeborne.selenide.Selenide.refresh;
 import static io.qameta.allure.Allure.step;
 
 
@@ -34,7 +36,7 @@ public class MainPageTests extends TestBase {
     @BaseAnnotation
     @Test
     void openPizzaCardTest() {
-        mainPage.openPage().openPizza(cheesePizza);
+        mainPage.openPage().openPizza(pizzaName);
     }
 
     @DisplayName("Go to section:")
@@ -71,15 +73,19 @@ public class MainPageTests extends TestBase {
     @ParameterizedTest(name = "{0}")
     @ValueSource(ints = {
             1,
-            4
+            5
     })
     void checkCartQuantityTest(int value) {
         mainPage.openPage();
-        step("Add pizza to cart " + value + " times", () -> {
-                    for (int i = 0; i < value; i++) {
-                        mainPage.openPizza(cheesePizza).addToCart();
-                    }
-                });
+
+        step("Add pizza to cart " + value + " times via API", () -> {
+            for (int i = 0; i < value; i++) {
+                ApiHelper.addProductToCart(pizzaApiBodyId, pizzaApiHeaderId);
+            }
+        });
+
+        refresh();
         mainPage.checkCartQuantity(value);
+
     }
 }
