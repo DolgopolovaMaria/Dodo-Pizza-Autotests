@@ -1,6 +1,6 @@
 # Проект по автоматизации UI тестирования сайта Додо Пицца
 ## :pizza: <a target="_blank" href="https://dodopizza.ru/">Сайт Додо Пицца</a>
-<img title="Dodo" src="Images/Screenshots/Dodo2.png">
+<a target="_blank" href="https://dodopizza.ru/"><img title="Dodo" src="Images/Screenshots/Dodo2.png"></a>
 
 ## :page_with_curl: Содержание:
 
