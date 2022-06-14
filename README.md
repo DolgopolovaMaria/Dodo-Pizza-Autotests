@@ -17,6 +17,7 @@
 <img width="6%" title="Gradle" src="Images/Logos/Gradle.svg">
 <img width="6%" title="JUnit5" src="Images/Logos/JUnit5.svg">
 <img width="6%" title="Selenide" src="Images/Logos/Selenide.svg">
+<img width="6%" title="REST-assured" src="Images/Logos/Rest-assured.png">
 <img width="6%" title="Allure Report" src="Images/Logos/Allure_Report.svg">
 <img width="6%" title="IntelliJ IDEA" src="Images/Logos/Intelij_IDEA.svg">
 <img width="6%" title="Selenoid" src="Images/Logos/Selenoid.svg">
@@ -29,7 +30,8 @@
 > Для автоматизированной сборки проекта используется <code>Gradle</code>.
 > В качестве библиотеки для тестирования используется <code>JUnit 5</code>.
 > В UI-тестах используется <code>Selenide</code>.
-> Для формирования отчетов о тестировании - <code>Allure Report</code>.
+> Для подготовки некоторых тестовых данных выполняются запросы к API, написанные с помощью <code>REST-assured</code>.
+> Отчеты о тестировании формирует <code>Allure Report</code>.
 > Тесты можно запускать в <code>Jenkins</code>.
 > Запуск тестов на удаленном браузере выполняется с помощью<code>Selenoid</code>.
 > После завершения прогона отправляются уведомления с помощью бота в <code>Telegram</code>.
